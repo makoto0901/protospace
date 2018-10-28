@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.8'
 # gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -17,8 +17,10 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'sqlite3', group: :development
+gem 'thin', group: :production
+gem 'rails_12factor', group: :production
 # すでに1.1.3がインストールされているから無視でいい？
-# gem 'pg', '~> 1.19.0', group: :production
+gem 'pg', '~> 0.19.0', group: :production
 
 group :development, :test do
   gem 'byebug'
