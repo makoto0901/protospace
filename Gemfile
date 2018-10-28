@@ -16,6 +16,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'kaminari'
 gem 'sqlite3', group: :development
 gem 'thin', group: :production
 gem 'rails_12factor', group: :production
