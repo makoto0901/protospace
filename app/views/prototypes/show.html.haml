@@ -37,5 +37,7 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
-        %li
-          = link_to 'Edit', 'edit', class: 'btn btn-default'
+        / ログインユーザが投稿した画像のみ編集可能とする
+        - if current_user.id == @prototype.user.id
+          %li
+            = link_to 'Edit', "#{prototype_path(@prototype)}/edit", class: 'btn btn-default'
