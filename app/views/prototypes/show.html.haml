@@ -23,6 +23,9 @@
             = image_tag(image.content, class: 'img-responsive')
   .row.proto-description
     .col-md-3
+      %li
+        - if current_user && current_user.id == @prototype.user.id
+          = link_to '削除', "/prototypes/#{@prototype.id}", method: :delete
       %h4 Catch Copy
       %p
         = @prototype.catch_copy
