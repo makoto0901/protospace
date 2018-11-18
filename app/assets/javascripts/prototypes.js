@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('input[type="file"]').on('change', function(e){
     var file = e.target.files[0];
     if (!file.type.match('image.*')) {
