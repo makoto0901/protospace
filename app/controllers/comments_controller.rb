@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:destroy, :edit, :update]
   before_action :set_prototype
 
   def create
@@ -7,20 +6,7 @@ class CommentsController < ApplicationController
     redirect_to prototype_path(@prototype)
   end
 
-  def destroy
-    @comment.destroy if @comment.user_id == current_user.id
 
-    redirect_to prototype_path(@prototype)
-  end
-
-  def edit
-  end
-
-  def update
-    @comment.content = params[:content]
-    @comment.update(comment_params)
-    redirect_to prototype_path(@prototype)
-  end
 
   private
   def comment_params
