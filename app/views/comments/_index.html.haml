@@ -10,12 +10,6 @@
             .media-body
               %h4#top-aligned-media.media-heading
                 =  comment.user.name
-                -if user_signed_in? && current_user.id == comment.user.id
-                  .btn.btn-default.delete_btn
-                    Delete
-                  .btn.btn-default.edit_btn
-                    edit
-                  / = f.submit "Update", class: "btn btn-default submit_btn"
               %p= comment.content
 
 / %h4.col-md-12
