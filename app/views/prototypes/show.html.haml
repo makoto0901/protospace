@@ -23,6 +23,8 @@
             = image_tag(image.content, class: 'img-responsive')
   .row.proto-description
     .col-md-3
+      %li
+        = link_to '削除', "/prototypes/#{@prototype.id}", method: :delete
       %h4 Catch Copy
       %p
         = @prototype.catch_copy
