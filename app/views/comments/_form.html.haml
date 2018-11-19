@@ -1,0 +1,12 @@
+.form-inlign
+  %h4 Write a comment
+  #comments
+    = form_for [@prototype, @comment] do |f|
+      = f.text_area :content, class: 'form-control', id: 'comment_field', placeholder: 'Sign in to put your comment', rows: '3'
+      = f.submit 'comment', class: 'btn-primary'
+    / .form-group.col-md-10
+    /   %textarea#comment_field.form-control{:disabled => "disabled", :name => "comment[text]", :placeholder => "Sign in to put your comment", :rows => "3"}
+    /     :preserve
+
+    /                       .form-group.col-md-2
+    /   %input.btn.btn-primary{:disabled => "disabled", :name => "commit", :type => "submit", :value => "comment"}/

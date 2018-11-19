@@ -40,3 +40,11 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+
+  .row
+    .proto-comments
+      = render partial: "comments/index", locals: {comment: @comments,prototype: @prototype}
+  .row
+    .proto-comments--form
+      = render partial: "comments/form", locals: {comment: @comment, prototype: @prototype}
+
