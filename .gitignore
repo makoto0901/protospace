@@ -5,6 +5,7 @@
 /log/*
 !/log/.keep
 /tmp
+app/assets/images/icon_herat_red.svg
 =======
 *.rbc
 capybara-*.html
