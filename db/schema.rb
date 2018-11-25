@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181125072953) do
+ActiveRecord::Schema.define(version: 20181125074520) do
 
   create_table "captured_images", force: :cascade do |t|
     t.string  "content"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20181125072953) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "like_count"
   end
 
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id"
