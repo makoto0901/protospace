@@ -21,7 +21,7 @@ class PrototypesController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = Comment.includes(:user).where(prototype_id: params[:id])
+    @comments = @prototype.comments.includes(:user)
   end
 
   def destroy

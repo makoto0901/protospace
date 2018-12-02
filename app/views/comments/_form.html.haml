@@ -1,12 +1,22 @@
-.form-inlign
-  %h4 Write a comment
-  #comments
-    = form_for [@prototype, @comment] do |f|
-      = f.text_area :content, class: 'form-control', id: 'comment_field', placeholder: 'Sign in to put your comment', rows: '3'
-      = f.submit 'comment', class: 'btn-primary'
-    / .form-group.col-md-10
-    /   %textarea#comment_field.form-control{:disabled => "disabled", :name => "comment[text]", :placeholder => "Sign in to put your comment", :rows => "3"}
-    /     :preserve
+.row.proto-comments
+  %h4.col-md-12
+    Comments
+    %span#comments_count #{@comments.count}
+  .col-md-8
+    #comments
+      = render @comments
+    -if user_signed_in?
+      .form-inlign{role: "form"}
+        = form_for([@prototype, @comment]) do |f|
+          %h4 Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_area(:content, row: 3, placeholder: "Input comment", required: "required", class: "form-control", id: "comment_field")
+              = f.hidden_field(:user_id, value: current_user.id)
+              = f.hidden_field(:prototype_id, value: @prototype.id)
+            .form-group.col-md-2
+              = f.submit "comment", class: "btn btn-primary"
+    -else
+      %h4
+        = link_to "Sign In to comment", new_user_session_path
 
-    /                       .form-group.col-md-2
-    /   %input.btn.btn-primary{:disabled => "disabled", :name => "commit", :type => "submit", :value => "comment"}/

@@ -1,12 +1,35 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:destroy, :edit, :update]
   before_action :set_prototype
 
   def create
-    @comment = Comment.create(comment_params)
-    redirect_to prototype_path(@prototype)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to prototype_path(params[:prototype_id]) }
+        format.json
+      end
+    else
+      redirect_to prototype_path(params[:prototype_id])
+    end
   end
 
+  def destroy
+    if @comment.user_id == current_user.id
+      @comment.destroy
+    end
+    redirect_to prototype_path(params[:prototype_id])
+  end
 
+  def edit
+  end
+
+  def update
+    if @comment.user_id == current_user.id
+      @comment.update(comment_params)
+    end
+    redirect_to prototype_path(params[:prototype_id])
+  end
 
   private
   def comment_params
