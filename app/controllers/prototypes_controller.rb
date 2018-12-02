@@ -26,6 +26,12 @@ class PrototypesController < ApplicationController
   end
 
   def update
+    prototype = Prototype.find(params[:id])
+    if prototype.update(prototype_params)
+      redirect_to prototype_path, notice: 'update successfully', id: params[:id]
+    end
+    # TOPの場合はメッセージ表示可能
+    # redirect_to :root, notice: 'update successfully', id: params[:id]
   end
 
   def destroy
