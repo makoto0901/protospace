@@ -1,7 +1,7 @@
 .container.proto-page
   %header.row.user-nav
     .col-md-6
-      .media
+      .media1
         .media-left
           = link_to user_path(@prototype.user) do
             = image_tag(@prototype.user.avatar.thumb, alt: "profile_photo", class: "media-object", style: "width: 64px; height: 64px;")
@@ -40,3 +40,8 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+
+  .row
+    .proto-comments--form
+      = render partial: "comments/form", locals: {comment: @comment, prototype: @prototype}
+
